@@ -31,4 +31,4 @@ jobs:
       
       - name: Deploy to Server
         run: |
-          ssh -o StrictHostKeyChecking=no  root@135.181.88.52 "cd  cd /root/src/crud-api-github-action && git pull && npm install && pm2 restart all"
+          ssh -o StrictHostKeyChecking=no  -p 22 root@135.181.88.52 "cd  cd /root/src/crud-api-github-action && git pull && npm install && pm2 restart all"
