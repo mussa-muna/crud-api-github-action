@@ -30,5 +30,6 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }} 
       
       - name: Deploy to Server
-        run: |
-          ssh -o StrictHostKeyChecking=no  root@135.181.88.52 " cd /root/src/crud-api-github-action && git pull && npm install && pm2 restart all"
+      run: |
+        ssh -v -o StrictHostKeyChecking=no root@135.181.88.52 "cd /root/src/crud-api-github-action && git pull && npm install && pm2 restart all"
+        
