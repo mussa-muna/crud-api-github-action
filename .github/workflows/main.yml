@@ -27,8 +27,8 @@ jobs:
       - name: Configure SSH keys
         uses: webfactory/ssh-agent@v0.7.0
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }} 
       
       - name: Deploy to Server
         run: |
-          ssh -o StrictHostKeyChecking=no  -p 22 root@135.181.88.52 "cd  cd /root/src/crud-api-github-action && git pull && npm install && pm2 restart all"
+          ssh -o StrictHostKeyChecking=no  root@135.181.88.52 " cd /root/src/crud-api-github-action && git pull && npm install && pm2 restart all"
