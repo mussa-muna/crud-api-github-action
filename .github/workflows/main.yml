@@ -36,5 +36,5 @@ jobs:
     
       - name: Deploy to Server
         run: |
-          ssh -v -o StrictHostKeyChecking=no root@135.181.88.52 "cd /root/src/crud-api-github-action && git pull && npm install && pm2 restart all"
+          ssh -v -o StrictHostKeyChecking=no hilium@135.181.88.52 "cd /home/hilium/src/crud-api-github-action && git pull && npm install && pm2 restart all"
           
