@@ -22,19 +22,19 @@ jobs:
         run: npm install
 
       - name: Run Tests
-        run: npm test
-      
+        run: npm test   
+     
       - name: Configure SSH keys
         uses: webfactory/ssh-agent@v0.7.0
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }} 
-
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      
       - name: Add SSH key to agent
         run: |
           eval $(ssh-agent -s)
           ssh-add /home/hilium/.ssh/id_rsa
-    
+      
       - name: Deploy to Server
         run: |
           ssh -v -o StrictHostKeyChecking=no hilium@135.181.88.52 "cd /home/hilium/src/crud-api-github-action && git pull && npm install && pm2 restart all"
-          
+                
