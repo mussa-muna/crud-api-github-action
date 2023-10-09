@@ -34,7 +34,7 @@ jobs:
 
       - name: Deploy to Server
         run: |
-          ssh -o StrictHostKeyChecking=no -t hilium@135.181.88.52 "export PATH=$PATH:/home/hilium/.nvm/versions/node/v18.18.0/bin && cd /home/hilium/src/crud-api-github-action && git checkout main && git pull && npm install && nohup npm start > /dev/null 2>&1 && pm2 restart all" && exit
+          ssh -o StrictHostKeyChecking=no -t hilium@135.181.88.52 "export PATH=$PATH:/home/hilium/.nvm/versions/node/v18.18.0/bin && cd /home/hilium/src/crud-api-github-action && git checkout main && git pull && npm install && pm2 restart all" && exit
       
       - name: Cleanup SSH keys
         run: rm -rf ~/.ssh
