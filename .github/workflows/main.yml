@@ -24,6 +24,9 @@ jobs:
       - name: Run Tests
         run: npm test   
       
+      - name: Install PM2
+        run: npm install -g pm2
+        
       - name: install ssh keys
         run: |
           install -m 600 -D /dev/null ~/.ssh/id_rsa
