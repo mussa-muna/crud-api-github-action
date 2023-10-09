@@ -28,6 +28,15 @@ jobs:
         uses: webfactory/ssh-agent@v0.7.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          
+      - name: Debug Environment
+        run: |
+          echo "HOME: $HOME"
+          echo "USER: $USER"
+          echo "SSH_AUTH_SOCK: $SSH_AUTH_SOCK"
+          echo "SSH_AGENT_PID: $SSH_AGENT_PID"
+          ls -la $HOME/.ssh
+        
       
       - name: Add SSH key to agent
         run: |
