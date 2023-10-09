@@ -23,17 +23,14 @@ jobs:
 
       - name: Run Tests
         run: npm test   
-      
-      - name: Install PM2
-        run: npm install -g pm2
-        
+    
       - name: install ssh keys
         run: |
           install -m 600 -D /dev/null ~/.ssh/id_rsa
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           ssh-keyscan -H 135.181.88.52 > ~/.ssh/known_hosts
       - name: connect and pull
-        run: ssh hilium@135.181.88.52 "cd /home/hilium/src/crud-api-github-action && git checkout main && git pull && pm2 restart all && exit"
+        run: ssh hilium@135.181.88.52 "cd /home/hilium/src/crud-api-github-action && git checkout main && git pull && npm install -g npm@10.2.0 && npm install pm2 -g && pm2 restart all && exit"
 
       - name: cleanup
         run: rm -rf ~/.ssh
